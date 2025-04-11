@@ -12,11 +12,17 @@ rg_letters = int(input("How many letters would you like in your password?\n"))
 rg_numbers = int(input("How many numbers would you like?\n"))
 rg_symbols = int(input("How many symbols would you like?\n"))
 
-letter_mix = random.sample(letters, rg_letters)
-number_mix = random.sample(numbers, rg_numbers)
-symbol_mix = random.sample(symbols, rg_symbols)
-combo_mix = letter_mix + number_mix + symbol_mix
-random.shuffle(combo_mix)
-generation = "".join(combo_mix)
+password = []
+for char in range(0, rg_letters):
+    password.append(random.choice(letters))
+
+for char in range(0, rg_numbers):
+    password.append(random.choice(numbers))
+
+for char in range(0, rg_symbols):
+    password.append(random.choice(symbols))
+
+random.shuffle(password)
+generation = "".join(password)
 
 print("Your new password is: ", generation)
